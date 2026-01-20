@@ -8,7 +8,7 @@ refund risks.
 ## 🧠 Business Questions
 - What drives revenue growth?
 - Where do users drop off in the purchase funnel?
-- How valuable are repeat customers?
+- Are customers coming back?
 - Which products have high refund risk?
 
 ## 🛠 Tools Used
