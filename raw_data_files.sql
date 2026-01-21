@@ -88,4 +88,9 @@ ADD CONSTRAINT fk_refunds_order_items
 FOREIGN KEY (order_item_id)
 REFERENCES order_items (order_item_id);
 
+CREATE INDEX idx_orders_created_at ON orders (created_at);
+CREATE INDEX idx_sessions_created_at ON website_sessions (created_at);
+CREATE INDEX idx_order_items_product ON order_items (product_id);
+
+
 
