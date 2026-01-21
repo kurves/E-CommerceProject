@@ -63,29 +63,3 @@ SELECT COUNT(*) FROM orders;
 SELECT MIN(created_at), MAX(created_at) FROM orders;
 SELECT * FROM orders LIMIT 10;
 
-ALTER TABLE orders
-ADD CONSTRAINT fk_orders_sessions
-FOREIGN KEY (website_session_id)
-REFERENCES website_sessions (website_session_id);
-
-ALTER TABLE order_items
-ADD CONSTRAINT fk_order_items_orders
-FOREIGN KEY (order_id)
-REFERENCES orders (order_id);
-
-ALTER TABLE order_items
-ADD CONSTRAINT fk_order_items_products
-FOREIGN KEY (product_id)
-REFERENCES products (product_id);
-
-ALTER TABLE website_pageviews
-ADD CONSTRAINT fk_pageviews_sessions
-FOREIGN KEY (website_session_id)
-REFERENCES website_sessions (website_session_id);
-
-ALTER TABLE order_item_refunds
-ADD CONSTRAINT fk_refunds_order_items
-FOREIGN KEY (order_item_id)
-REFERENCES order_items (order_item_id);
-
-
