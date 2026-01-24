@@ -2,7 +2,7 @@
 
 ## 📌 Project Overview
 This project analyzes transactional and web data for an e-commerce business to identify revenue drivers, funnel drop-offs, customer retention patterns, and refund risks. 
-This project implements a complete end-to-end analytics workflow, covering data modeling, ETL, KPI development, and visualization which included Designed and queried a relational database using PostgreSQL to model orders, customers, products, and transactions, Performed data extraction, cleaning, and transformation using Python (pandas, NumPy), Built core business KPIs including customer retention, repeat purchase rate, churn, revenue trends, and profitability metrics, Conducted cohort and funnel analysis to identify customer drop-off points and Developed interactive dashboards in Power BI to communicate insights to both technical and non-technical stakeholders.
+This project implements a complete end-to-end analytics workflow, covering data modeling, ETL, KPI development, and visualization. This included designing and querying a relational database using PostgreSQL to model orders, customers, products, and transactions,  data extraction, cleaning, and transformation using Python (pandas, NumPy). Built core business KPIs including customer retention, repeat purchase rate, churn, revenue trends, and profitability metrics, Conducted cohort and funnel analysis to identify customer drop-off points and Developed interactive dashboards in Power BI to communicate insights to both technical and non-technical stakeholders.
 
 ## 🧠 Business Questions
 - What drives revenue growth?
