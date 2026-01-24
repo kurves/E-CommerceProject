@@ -15,14 +15,15 @@ GROUP BY d.date_day, d.year, d.month
 ORDER BY d.date_day;
 
 -- product analysis
-
 CREATE OR REPLACE VIEW vw_revenue_by_product AS
 SELECT
     p.product_id,
     p.product_name,
     d.year,
     d.month,
-    SUM(oi.price_usd) AS product_revenue,
+    SUM(oi.item_revenue_usd) AS product_revenue_usd,
+    SUM(oi.item_cost_usd) AS product_cost_usd,
+    SUM(oi.item_profit_usd) AS product_profit_usd,
     COUNT(oi.order_item_id) AS units_sold
 FROM fact_order_items oi
 JOIN fact_orders o
@@ -30,13 +31,13 @@ JOIN fact_orders o
 JOIN dim_products p
     ON oi.product_id = p.product_id
 JOIN dim_date d
-    ON o.order_date = d.date_day
+    ON oi.order_item_date = d.date_day
 GROUP BY
     p.product_id,
     p.product_name,
     d.year,
     d.month
-ORDER BY product_revenue DESC;
+ORDER BY product_revenue_usd DESC;
 
 
 -- funnel analysis
