@@ -14,9 +14,51 @@ JOIN dim_date d
 GROUP BY d.date_day, d.year, d.month
 ORDER BY d.date_day;
 
+-- product analysis
+
+CREATE OR REPLACE VIEW vw_revenue_by_product AS
+SELECT
+    p.product_id,
+    p.product_name,
+    d.year,
+    d.month,
+    SUM(oi.price_usd) AS product_revenue,
+    COUNT(oi.order_item_id) AS units_sold
+FROM fact_order_items oi
+JOIN fact_orders o
+    ON oi.order_id = o.order_id
+JOIN dim_products p
+    ON oi.product_id = p.product_id
+JOIN dim_date d
+    ON o.order_date = d.date_day
+GROUP BY
+    p.product_id,
+    p.product_name,
+    d.year,
+    d.month
+ORDER BY product_revenue DESC;
 
 
 -- funnel analysis
+CREATE OR REPLACE VIEW vw_funnel_sessions_orders AS
+SELECT
+    d.date_day,
+    COUNT(DISTINCT s.website_session_id) AS sessions,
+    COUNT(DISTINCT o.order_id) AS orders,
+    ROUND(
+        COUNT(DISTINCT o.order_id)::NUMERIC
+        / NULLIF(COUNT(DISTINCT s.website_session_id), 0),
+        4
+    ) AS conversion_rate
+FROM fact_sessions s
+JOIN dim_date d
+    ON s.session_date = d.date_day
+LEFT JOIN fact_orders o
+    ON s.website_session_id = o.website_session_id
+GROUP BY d.date_day
+ORDER BY d.date_day;
+
+-- customer retention
 
 CREATE OR REPLACE VIEW vw_customer_retention AS
 SELECT
