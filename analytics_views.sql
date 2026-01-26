@@ -1,44 +1,19 @@
 -- business health 
-
-
 CREATE OR REPLACE VIEW vw_exec_daily_performance AS
 SELECT
     d.date_day,
     d.year,
     d.month,
-    COUNT(o.order_id) AS total_orders,
+    COUNT(DISTINCT o.order_id) AS total_orders,
     SUM(o.revenue_usd) AS total_revenue,
     SUM(o.gross_profit_usd) AS gross_profit,
-    AVG(o.revenue_usd) AS average_order_value
+    SUM(o.revenue_usd) / COUNT(DISTINCT o.order_id) AS average_order_value
 FROM fact_orders o
 JOIN dim_date d
     ON o.order_date = d.date_day
-GROUP BY d.date_day, d.year, d.month
-ORDER BY d.date_day;
+GROUP BY d.date_day, d.year, d.month;
 
--- product analysis
-CREATE VIEW vw_revenue_by_product AS
-SELECT
-    p.product_id,
-    p.product_name,
-    oi.order_item_date,
-    d.year,
-    d.month,
-    SUM(oi.item_revenue_usd) AS product_revenue_usd,
-    SUM(oi.item_cost_usd) AS product_cost_usd,
-    SUM(oi.item_profit_usd) AS product_profit_usd,
-    COUNT(oi.order_item_id) AS units_sold
-FROM fact_order_items oi
-JOIN dim_products p
-    ON oi.product_id = p.product_id
-JOIN dim_date d
-    ON oi.order_item_date = d.date_day
-GROUP BY
-    p.product_id,
-    p.product_name,
-    oi.order_item_date,
-    d.year,
-    d.month;
+
 
 
 
@@ -112,29 +87,6 @@ LEFT JOIN fact_refunds r
 GROUP BY p.product_id, p.product_name
 HAVING COUNT(r.order_item_refund_id) > 0
 ORDER BY refund_rate DESC;
-
--- product performance
-CREATE OR REPLACE VIEW vw_product_performance_risk AS
-SELECT
-    p.product_id,
-    p.product_name,
-    oi.order_item_date,
-    SUM(oi.item_revenue_usd) AS revenue,
-    SUM(oi.item_profit_usd) AS profit,
-    COUNT(oi.order_item_id) AS units_sold,
-    COUNT(r.order_item_id) AS refund_count,
-    COUNT(r.order_item_id)::decimal
-        / NULLIF(COUNT(oi.order_item_id), 0) AS refund_rate
-FROM fact_order_items oi
-JOIN dim_products p
-    ON oi.product_id = p.product_id
-LEFT JOIN fact_refunds r
-    ON oi.order_item_id = r.order_item_id
-GROUP BY
-    p.product_id,
-    p.product_name,
-    oi.order_item_date;
-
 
 
 
