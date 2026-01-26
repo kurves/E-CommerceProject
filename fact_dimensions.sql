@@ -14,6 +14,7 @@ FROM products;
 -- dim date
 
 
+
 CREATE TABLE dim_date (
     date_key        INT PRIMARY KEY,
     date_day        DATE NOT NULL UNIQUE,
@@ -55,6 +56,8 @@ FROM GENERATE_SERIES(
     DATE '2015-12-31',
     INTERVAL '1 day'
 ) AS d;
+
+
 
 
 
