@@ -12,6 +12,7 @@ This project implements a complete end-to-end analytics workflow, covering data 
 
 ## Data
 This dataset was sourced from [Maven Analytics](https://app.mavenanalytics.io/datasets). 
+![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/Capture2.PNG)
 
 ### Data Cleaning, Preparation and Modelling
 I clean and prepared the data using Python, PostgreSQL and PowerBI
@@ -19,7 +20,7 @@ I clean and prepared the data using Python, PostgreSQL and PowerBI
 
 Data model
 
-
+![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/model.PNG)
 
 ## 🛠 Tools Used
 - SQL (data modeling & analysis)
