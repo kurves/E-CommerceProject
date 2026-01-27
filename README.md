@@ -10,6 +10,16 @@ This project implements a complete end-to-end analytics workflow, covering data 
 - Are customers coming back?
 - Which products have high refund risk?
 
+## Data
+This dataset was sourced from [Maven Analytics](https://app.mavenanalytics.io/datasets). 
+
+### Data Cleaning, Preparation and Modelling
+I clean and prepared the data using Python, PostgreSQL and PowerBI
+![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/data1.PNG)
+
+Data model
+
+
 
 ## 🛠 Tools Used
 - SQL (data modeling & analysis)
@@ -22,7 +32,7 @@ This project implements a complete end-to-end analytics workflow, covering data 
 - 15% of products account for 60% of refunds
 
 ## 📈 Dashboards
-
+![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/dashboard1.PNG)
 
 ## 🚀 Recommendations
 - Prioritize funnel optimization on mobile
