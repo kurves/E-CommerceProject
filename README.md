@@ -15,7 +15,7 @@ This dataset was sourced from [Maven Analytics](https://app.mavenanalytics.io/da
 ![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/Capture2.PNG)
 
 ### Data Cleaning, Preparation and Modelling
-I clean and prepared the data using Python, PostgreSQL and PowerBI
+I cleaned and prepared the data using Python, PostgreSQL and PowerBI
 ![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/data1.PNG)
 
 Data model
@@ -33,9 +33,14 @@ Data model
 - 15% of products account for 60% of refunds
 
 ## 📈 Dashboards
+## Executive Overview
 ![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/dashboard1.PNG)
 
+## Funnel and Conversion Analysis
+![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/funnelanalysis.PNG)
+
 ## 🚀 Recommendations
-- Prioritize funnel optimization on mobile
+- Prioritize funnel optimization on mobile.
+  The conversion rate on mobile is low. UX/UI should be optimized to allow users to easily navigate and checkout.
 - Investigate top refund-rate products
 - Invest more in high-conversion channels
