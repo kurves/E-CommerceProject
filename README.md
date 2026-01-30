@@ -42,6 +42,9 @@ Data model
 ## Customer retention and LTV analysis
 ![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/customeranalysis.PNG)
 
+## Product and Refund Analysis
+![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/refundriskdashboard.PNG)
+
 ## 🚀 Recommendations
 - Prioritize funnel optimization on mobile.
   The conversion rate on mobile is low. UX/UI should be optimized to allow users to easily navigate and checkout.
