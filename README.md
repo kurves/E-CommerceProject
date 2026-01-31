@@ -41,7 +41,7 @@ The data model follows a star schema to ensure:
 - Scalable  analytical queries
   
 - ### Fact Tables
-- 
+
 These ensure metrics are calculated once reused consistently.
 Fact tables capture measurable business events:
 - `fact_orders` – order-level revenue and profit
@@ -55,7 +55,7 @@ Dimension tables provide descriptive context:
 - `dim_products` – product attributes
 - `dim_users` – customer identity and lifecycle
 
-##3 Analytical SQL Views
+### Analytical SQL Views
 
 Rather than querying fact tables directly for every analysis, this project
 introduces analytical SQL views that act as a semantic layer.
@@ -79,8 +79,12 @@ a clear and consistent grain.
 
 - `vw_customer_cohorts`
   - Cohort-based retention and LTV analysis
+ 
+### Architectural Diagram
 
+![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/ArchitecturalDiagram.png)
 
+### Schema Diagram
 ![](https://github.com/kurves/E-CommerceProject/blob/main/projectimages/model.PNG)
 
 ## 🛠 Tools Used
